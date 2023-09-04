@@ -23,7 +23,7 @@ def searchSong(year):
 
         file.seek(0)
 
-        random_number = random.randint(1, 10)
+        random_number = random.randint(1, 9)
 
         for i, line in enumerate(file, start=1):
             if i == count+random_number+2:
