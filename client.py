@@ -1,3 +1,4 @@
+import random
 import socket
 import sys
 
@@ -27,8 +28,20 @@ data = s.recv(1024)  # Setting the buffer size as 1024
 print("Server Response:", data.decode())
 
 
-# send the seleced year to the server
-s.send("1950".encode())
+# send the selected year to the server
+# send random year if not in valid range
+range = data.decode().split(", ")
+year = input("Please enter a year between " +
+             range[0] + " and " + range[1] + ": ")
+
+if (int(year) >= int(range[0]) and int(year) <= int(range[1])):
+    s.send(year.encode())
+else:
+    print("Invalid year. Sending 1950 as year.")
+    year = random.randint(int(range[0]), int(range[1]))
+    s.send(str(year).encode())
+
+# s.send("1950".encode())
 
 # receive the song from the server
 data = s.recv(1024)  # Setting the buffer size as 1024

@@ -2,15 +2,16 @@ import argparse
 import socket
 import random
 
-"""This function takes a year as a parameter and returns a random top song from that year
 
-PARAMETERS:
-year (int): The year to search for
-
-RETURNS:
-(str): Random song from the year
-"""
 def searchSong(year):
+    """This function takes a year as a parameter and returns a random top song from that year
+
+    PARAMETERS:
+    year (int): The year to search for
+
+    RETURNS:
+    (str): Random song from the year
+    """
     count = 0
 
     with open('songs.txt', "r") as file:
@@ -20,10 +21,12 @@ def searchSong(year):
             if str(year) in line:
                 break
 
+        file.seek(0)
+
         random_number = random.randint(1, 10)
 
         for i, line in enumerate(file, start=1):
-            if i == count+random_number:
+            if i == count+random_number+2:
                 return (f"In {year} the {random_number+1} song was " + line.strip()[3:])
 
 
@@ -75,5 +78,5 @@ while True:
     # Close the connection with the client
     c.close()
 
-    # ending the loop 
+    # ending the loop
     break
