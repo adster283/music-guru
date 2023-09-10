@@ -30,7 +30,7 @@ def searchSong(year, testing = False):
                 if testing:
                     return [random_number+1, line.strip()]
                 else:
-                    return (f"In {year} the {random_number+1} song was " + line.strip()[3:])
+                    return (f"In {year} the number {random_number+1} song was " + line.strip()[3:])
 
 if __name__ == "__main__":
 
