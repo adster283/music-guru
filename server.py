@@ -82,5 +82,3 @@ if __name__ == "__main__":
         # Close the connection with the client
         c.close()
 
-        # ending the loop
-        break
