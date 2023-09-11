@@ -37,8 +37,8 @@ year = input("Please enter a year between " +
 if (int(year) >= int(range[0]) and int(year) <= int(range[1])):
     s.send(year.encode())
 else:
-    print("Invalid year. Sending 1950 as year.")
     year = random.randint(int(range[0]), int(range[1]))
+    print("Specified year out of range (1950-2009), using random date instead :", year)
     s.send(str(year).encode())
 
 # s.send("1950".encode())
