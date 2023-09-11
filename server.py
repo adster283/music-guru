@@ -30,7 +30,7 @@ def searchSong(year, testing = False):
                 if testing:
                     return [random_number+1, line.strip()]
                 else:
-                    return (f"In {year} the number {random_number+1} song was " + line.strip()[3:])
+                    return (f"In {year} the number {random_number+1} song was " + line.strip()[3:] + " " +  socket.gethostbyname(socket.gethostname()))
 
 if __name__ == "__main__":
 
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     s.listen(5)
     print("socket is listening")
 
-    # an infinite loop until we interrupt it or
+    # an infinite loop until we interrupt it or3
     # an error occurs
     while True:
 
